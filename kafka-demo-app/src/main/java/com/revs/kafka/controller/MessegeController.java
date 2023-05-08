@@ -1,11 +1,14 @@
 package com.revs.kafka.controller;
 
 import com.revs.kafka.dto.MessageRequest;
+import org.apache.coyote.Response;
+import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.kafka.support.SendResult;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("/api/v1/messages")
@@ -18,8 +21,11 @@ public class MessegeController {
     }
 
     @PostMapping("/publish")
-    public void publishMessage(@RequestBody MessageRequest request) {
-        kafkaTemplate.send("amigoscode", request.getMessage());
+    @CrossOrigin("*")
+    public String publishMessage(@RequestBody MessageRequest request) throws ExecutionException, InterruptedException {
+        final String message = request.getMessage();
+        kafkaTemplate.send("amigoscode", message);
+        return "Success";
     }
 
     @PostMapping("/publish2")
