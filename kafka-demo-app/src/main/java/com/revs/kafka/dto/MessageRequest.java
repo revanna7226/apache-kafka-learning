@@ -7,5 +7,6 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 public class MessageRequest {
+    private String topic;
     private String message;
 }
