@@ -1,5 +1,10 @@
 # PublisherApp
 
+### Use below command to create Angular App
+on Latest Node.js and Globally installed Latest Angular CLI
+npx -p @angular/cli@13 ng new my-app
+Replace 13 by any other version you want
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
 ## Development server
