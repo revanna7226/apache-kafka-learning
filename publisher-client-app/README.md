@@ -8,7 +8,7 @@ Replace 13 by any other version you want.
 If npx is not installed run this command to install it. `npm install -g npx`
 
 ## To create Resources like Component, Services, Directives and etc.
-npx -p @angular/cli@13 ng g c <component_name>
+cd `my-app` and run `npx -p @angular/cli@13 ng g c <component_name>`
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
